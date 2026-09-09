@@ -64,6 +64,11 @@ export function Footer() {
                 Tentang toko
               </Link>
             </li>
+            <li>
+              <Link to="/kasir" className="hover:text-ink-fg">
+                Kasir toko
+              </Link>
+            </li>
           </ul>
         </div>
         <div>

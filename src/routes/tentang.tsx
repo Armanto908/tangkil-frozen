@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Phone, Snowflake, BadgeCheck, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SITE, waLink } from "@/lib/site";
@@ -73,7 +73,7 @@ function TentangPage() {
           <p className="mt-4 text-sm text-muted">
             Ambil sendiri atau titip kurir instan. Chat dulu untuk pastikan stok slice dan iga.
           </p>
-          <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+          <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
             <Button asChild variant="wa">
               <a href={waLink("Halo, saya mau tanya stok dan jam ambil di toko.")} target="_blank" rel="noreferrer">
                 WhatsApp admin
@@ -83,6 +83,9 @@ function TentangPage() {
               <a href={maps} target="_blank" rel="noreferrer">
                 Buka peta
               </a>
+            </Button>
+            <Button asChild variant="soft">
+              <Link to="/kasir">Buka kasir toko</Link>
             </Button>
           </div>
         </div>

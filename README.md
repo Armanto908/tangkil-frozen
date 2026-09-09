@@ -17,7 +17,8 @@ Toko daging beku premium di Kedungwuni, Pekalongan.
 
 ## Live
 
-Situs: [tangkil-frozen.netlify.app](https://tangkil-frozen.netlify.app)
+Situs: [tangkil-frozen.netlify.app](https://tangkil-frozen.netlify.app)  
+Kasir toko: [tangkil-frozen.netlify.app/kasir](https://tangkil-frozen.netlify.app/kasir)
 
 ## Menjalankan lokal
 

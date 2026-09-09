@@ -16,9 +16,13 @@ import { Route as KeranjangRouteImport } from './routes/keranjang'
 import { Route as LanggananRouteImport } from './routes/langganan'
 import { Route as PaketRouteImport } from './routes/paket'
 import { Route as TentangRouteImport } from './routes/tentang'
+import { Route as KasirIndexRouteImport } from './routes/kasir/index'
+import { Route as KasirLaporanRouteImport } from './routes/kasir/laporan'
+import { Route as KasirRiwayatRouteImport } from './routes/kasir/riwayat'
 import { Route as KategoriSlugRouteImport } from './routes/kategori/$slug'
 import { Route as ProdukIndexRouteImport } from './routes/produk/index'
 import { Route as ProdukSlugRouteImport } from './routes/produk/$slug'
+import { Route as KasirStrukIdRouteImport } from './routes/kasir/struk/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -55,6 +59,21 @@ const TentangRoute = TentangRouteImport.update({
   path: '/tentang',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KasirIndexRoute = KasirIndexRouteImport.update({
+  id: '/kasir/',
+  path: '/kasir/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KasirLaporanRoute = KasirLaporanRouteImport.update({
+  id: '/kasir/laporan',
+  path: '/kasir/laporan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KasirRiwayatRoute = KasirRiwayatRouteImport.update({
+  id: '/kasir/riwayat',
+  path: '/kasir/riwayat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KategoriSlugRoute = KategoriSlugRouteImport.update({
   id: '/kategori/$slug',
   path: '/kategori/$slug',
@@ -70,6 +89,11 @@ const ProdukSlugRoute = ProdukSlugRouteImport.update({
   path: '/produk/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KasirStrukIdRoute = KasirStrukIdRouteImport.update({
+  id: '/kasir/struk/$id',
+  path: '/kasir/struk/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -79,9 +103,13 @@ export interface FileRoutesByFullPath {
   '/langganan': typeof LanggananRoute
   '/paket': typeof PaketRoute
   '/tentang': typeof TentangRoute
+  '/kasir/laporan': typeof KasirLaporanRoute
+  '/kasir/riwayat': typeof KasirRiwayatRoute
   '/kategori/$slug': typeof KategoriSlugRoute
   '/produk/$slug': typeof ProdukSlugRoute
+  '/kasir/': typeof KasirIndexRoute
   '/produk/': typeof ProdukIndexRoute
+  '/kasir/struk/$id': typeof KasirStrukIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -91,9 +119,13 @@ export interface FileRoutesByTo {
   '/langganan': typeof LanggananRoute
   '/paket': typeof PaketRoute
   '/tentang': typeof TentangRoute
+  '/kasir/laporan': typeof KasirLaporanRoute
+  '/kasir/riwayat': typeof KasirRiwayatRoute
   '/kategori/$slug': typeof KategoriSlugRoute
   '/produk/$slug': typeof ProdukSlugRoute
+  '/kasir': typeof KasirIndexRoute
   '/produk': typeof ProdukIndexRoute
+  '/kasir/struk/$id': typeof KasirStrukIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -104,9 +136,13 @@ export interface FileRoutesById {
   '/langganan': typeof LanggananRoute
   '/paket': typeof PaketRoute
   '/tentang': typeof TentangRoute
+  '/kasir/laporan': typeof KasirLaporanRoute
+  '/kasir/riwayat': typeof KasirRiwayatRoute
   '/kategori/$slug': typeof KategoriSlugRoute
   '/produk/$slug': typeof ProdukSlugRoute
+  '/kasir/': typeof KasirIndexRoute
   '/produk/': typeof ProdukIndexRoute
+  '/kasir/struk/$id': typeof KasirStrukIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -118,9 +154,13 @@ export interface FileRouteTypes {
     | '/langganan'
     | '/paket'
     | '/tentang'
+    | '/kasir/laporan'
+    | '/kasir/riwayat'
     | '/kategori/$slug'
     | '/produk/$slug'
+    | '/kasir/'
     | '/produk/'
+    | '/kasir/struk/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -130,9 +170,13 @@ export interface FileRouteTypes {
     | '/langganan'
     | '/paket'
     | '/tentang'
+    | '/kasir/laporan'
+    | '/kasir/riwayat'
     | '/kategori/$slug'
     | '/produk/$slug'
+    | '/kasir'
     | '/produk'
+    | '/kasir/struk/$id'
   id:
     | '__root__'
     | '/'
@@ -142,9 +186,13 @@ export interface FileRouteTypes {
     | '/langganan'
     | '/paket'
     | '/tentang'
+    | '/kasir/laporan'
+    | '/kasir/riwayat'
     | '/kategori/$slug'
     | '/produk/$slug'
+    | '/kasir/'
     | '/produk/'
+    | '/kasir/struk/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -155,9 +203,13 @@ export interface RootRouteChildren {
   LanggananRoute: typeof LanggananRoute
   PaketRoute: typeof PaketRoute
   TentangRoute: typeof TentangRoute
+  KasirLaporanRoute: typeof KasirLaporanRoute
+  KasirRiwayatRoute: typeof KasirRiwayatRoute
   KategoriSlugRoute: typeof KategoriSlugRoute
   ProdukSlugRoute: typeof ProdukSlugRoute
+  KasirIndexRoute: typeof KasirIndexRoute
   ProdukIndexRoute: typeof ProdukIndexRoute
+  KasirStrukIdRoute: typeof KasirStrukIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -211,6 +263,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TentangRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kasir/': {
+      id: '/kasir/'
+      path: '/kasir'
+      fullPath: '/kasir/'
+      preLoaderRoute: typeof KasirIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kasir/laporan': {
+      id: '/kasir/laporan'
+      path: '/kasir/laporan'
+      fullPath: '/kasir/laporan'
+      preLoaderRoute: typeof KasirLaporanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kasir/riwayat': {
+      id: '/kasir/riwayat'
+      path: '/kasir/riwayat'
+      fullPath: '/kasir/riwayat'
+      preLoaderRoute: typeof KasirRiwayatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kategori/$slug': {
       id: '/kategori/$slug'
       path: '/kategori/$slug'
@@ -232,6 +305,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdukSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kasir/struk/$id': {
+      id: '/kasir/struk/$id'
+      path: '/kasir/struk/$id'
+      fullPath: '/kasir/struk/$id'
+      preLoaderRoute: typeof KasirStrukIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -243,9 +323,13 @@ const rootRouteChildren: RootRouteChildren = {
   LanggananRoute: LanggananRoute,
   PaketRoute: PaketRoute,
   TentangRoute: TentangRoute,
+  KasirLaporanRoute: KasirLaporanRoute,
+  KasirRiwayatRoute: KasirRiwayatRoute,
   KategoriSlugRoute: KategoriSlugRoute,
   ProdukSlugRoute: ProdukSlugRoute,
+  KasirIndexRoute: KasirIndexRoute,
   ProdukIndexRoute: ProdukIndexRoute,
+  KasirStrukIdRoute: KasirStrukIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
