@@ -15,6 +15,10 @@ Toko daging beku premium di Kedungwuni, Pekalongan.
 - Paket bundling & langganan box
 - Konfirmasi pesanan ke WhatsApp admin
 
+## Live
+
+Situs: [tangkil-frozen.netlify.app](https://tangkil-frozen.netlify.app)
+
 ## Menjalankan lokal
 
 ```bash
